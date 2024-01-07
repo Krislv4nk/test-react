@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import css from './ImageGalleryItem.module.css';
 
-export class ImageGalleryItem extends Component {
-  handleClick = () => {
-  this.props.onImageClick(this.props.largeImageURL);
+
+export const ImageGalleryItem = ({ id, webformatURL, tags, onImageClick }) => {
+  const handleClick = () => {
+    onImageClick(webformatURL);
 };
 
-  render() {
-    const { id, webformatURL, tags } = this.props;
-
     return (
-      <li className={css.ImageGalleryItem} onClick={this.handleClick} >
+      <li className={css.ImageGalleryItem} onClick={handleClick} >
         <img
           className={css.imageItem}
           src={webformatURL}
@@ -19,5 +17,4 @@ export class ImageGalleryItem extends Component {
         />
       </li>
     );
-  }
 }
